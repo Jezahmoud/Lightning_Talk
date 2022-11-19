@@ -4,15 +4,15 @@
 
 This project will briefly include:
 
-Answering a few questions about XAI
+- Answering a few questions about XAI
 
-Common XAI uses
+- Common XAI uses
 
-R packages for XAI
+- R packages for XAI
 
-R-Implementation
+- R-Implementation
 
-You can find the presentation slides https://jezahmoud.github.io/Lightning_Talk/XAI.html#/section 
+- You can find the presentation slides <a href = "https://jezahmoud.github.io/Lightning_Talk/XAI.html#/section ">here</a>
 
 
 <a href="https://github.com/Jezahmoud/Lightning_Talk"></a> [XAI Slide](./XAI.html)
