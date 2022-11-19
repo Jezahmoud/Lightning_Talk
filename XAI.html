@@ -381,9 +381,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="XAI_files/libs/quarto-diagram/mermaid.min.js"></script>
-  <script src="XAI_files/libs/quarto-diagram/mermaid-init.js"></script>
-  <link href="XAI_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-dark">
   <div class="reveal">
@@ -510,32 +507,8 @@
 </section></section>
 <section id="collection-of-tools" class="title-slide slide level1 center">
 <h1>Collection of tools</h1>
-<div class="cell" data-reveal="true" data-fig-width="10" data-fig-height="5">
-<div class="cell-output-display">
-<div>
-<p>
-</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-1">flowchart TD
-    B["fab:fa-twitter The DrWhy.AI"]
-    style B fill:#bbf,stroke:#333,stroke-width:4px
-    B==&gt;C[fa:fa-ban DALEX]
-    style C fill:#bbf,stroke:#ff56,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
-    B==&gt;D(iBreakDown);
-    style D fill:#bbf,stroke:#ff56,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
-    B==&gt;E(fairmodels)
-    style E fill:#bbf,stroke:#ff56,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
-    B==&gt;F(modelStudio)
-    style F fill:#bbf,stroke:#ff56,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
-    B==&gt;G(arenar)
-    style G fill:#bbf,stroke:#ff56,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
-</pre>
-<div id="mermaid-tooltip-1" class="mermaidTooltip">
 
-</div>
-<p></p>
-</div>
-</div>
-</div>
-<div class="footer">
+<img data-src="Screenshot%202022-11-19%20at%209.39.44%20pm.png" class="r-stretch quarto-figure-center"><div class="footer">
 <p>Learn more: <a href="https://github.com/ModelOriented/DrWhy">The DrWhy.AI</a></p>
 </div>
 </section>
@@ -543,33 +516,8 @@
 <section>
 <section id="categorization-of-xai" class="title-slide slide level1 center">
 <h1>Categorization of XAI</h1>
-<div class="cell" data-reveal="true">
-<div class="cell-output-display">
-<div>
-<p>
-</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-2">flowchart TB;
- 
-    subgraph Scope
-    A[Global Explination] === B[Explinaing the whole model]
-    style A fill:#bbf,stroke:#333,stroke-width:4px
-    C[Local Explination] === D[Expliaing a specific model]
-    style C fill:#bbf,stroke:#333,stroke-width:4px
-    end
-    subgraph Agnosticity
-    E[Model-agnostic] === F[Application to all model types]
-    style E fill:#bbf,stroke:#333,stroke-width:4px
-    G[Model-specific] === I[Only applicable to a specific model type]
-    style G fill:#bbf,stroke:#333,stroke-width:4px
-    end
-</pre>
-<div id="mermaid-tooltip-2" class="mermaidTooltip">
 
-</div>
-<p></p>
-</div>
-</div>
-</div>
-</section>
+<img data-src="Screenshot%202022-11-19%20at%209.40.04%20pm.png" class="r-stretch quarto-figure-center"></section>
 <section id="implementation" class="slide level2">
 <h2>Implementation</h2>
 <div class="panel-tabset">

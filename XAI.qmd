@@ -79,23 +79,7 @@ Over the past five years, the rate of interest has been rising steadily [(google
 
 # Collection of tools
 
-```{mermaid}
-%%| fig-width: 10
-%%| fig-height: 5
-flowchart TD
-    B["fab:fa-twitter The DrWhy.AI"]
-    style B fill:#bbf,stroke:#333,stroke-width:4px
-    B==>C[fa:fa-ban DALEX]
-    style C fill:#bbf,stroke:#ff56,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
-    B==>D(iBreakDown);
-    style D fill:#bbf,stroke:#ff56,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
-    B==>E(fairmodels)
-    style E fill:#bbf,stroke:#ff56,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
-    B==>F(modelStudio)
-    style F fill:#bbf,stroke:#ff56,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
-    B==>G(arenar)
-    style G fill:#bbf,stroke:#ff56,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
-```
+![](Screenshot%202022-11-19%20at%209.39.44%20pm.png){fig-align="center"}
 
 ::: footer
 Learn more: [The DrWhy.AI](https://github.com/ModelOriented/DrWhy)
@@ -103,22 +87,7 @@ Learn more: [The DrWhy.AI](https://github.com/ModelOriented/DrWhy)
 
 # Categorization of XAI
 
-```{mermaid}
-flowchart TB;
- 
-    subgraph Scope
-    A[Global Explination] === B[Explinaing the whole model]
-    style A fill:#bbf,stroke:#333,stroke-width:4px
-    C[Local Explination] === D[Expliaing a specific model]
-    style C fill:#bbf,stroke:#333,stroke-width:4px
-    end
-    subgraph Agnosticity
-    E[Model-agnostic] === F[Application to all model types]
-    style E fill:#bbf,stroke:#333,stroke-width:4px
-    G[Model-specific] === I[Only applicable to a specific model type]
-    style G fill:#bbf,stroke:#333,stroke-width:4px
-    end
-```
+![](Screenshot%202022-11-19%20at%209.40.04%20pm.png){fig-align="center"}
 
 ## Implementation
 
