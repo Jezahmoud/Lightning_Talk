@@ -12,7 +12,7 @@ R packages for XAI
 
 R-Implementation
 
-You can find the presentation slides <a href="https://jezahmoud.github.io/Lightning_Talk/XAI.html#/section"></a> [here] 
+You can find the presentation slides https://jezahmoud.github.io/Lightning_Talk/XAI.html#/section 
 
 
 <a href="https://github.com/Jezahmoud/Lightning_Talk"></a> [XAI Slide](./XAI.html)
