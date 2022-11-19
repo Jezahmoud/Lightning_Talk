@@ -20,7 +20,7 @@ You can find the presentation slides <a href = "https://jezahmoud.github.io/Ligh
 
 
 
-<a href = "https://ema.drwhy.ai/ ">Explanatory Model Analysis</a>
+<a href = "https://ema.drwhy.ai/ ">- Explanatory Model Analysis</a>
 
 - Interpretable Machine Learning
 https://christophm.github.io/interpretable-ml-book/
