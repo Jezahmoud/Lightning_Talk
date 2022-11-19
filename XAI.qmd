@@ -1,0 +1,203 @@
+---
+format:
+  revealjs: 
+    theme: [moon]
+    highlight-style: arrow-light
+    incremental: true
+editor: visual
+---
+
+#  {background-image="Jeza Allohibi.png"}
+
+# Outline of the Talk
+
+-   Introduction
+
+-   Answering a few questions about XAI
+
+-   Common XAI uses
+
+-   R packages for XAI
+
+-   Implementation
+
+-   Conclusion\
+
+# Introduction
+
+Have you ever been curious about how machine learning works? Or, what is happening inside these models, and to what extent can we rely on their predictions?
+
+# What is XAI?
+
+::: {.fragment .fade-in}
+-   Explainable AI (XAI) is a new subfield of machine learning (ML).
+:::
+
+::: {.fragment .fade-in}
+-   Methods for describing the underlying decision-making process of machine learning models
+:::
+
+::: {.fragment .fade-in}
+-   XAI has many branches, but it generally tries to explain the results of complex black-box ML models.
+:::
+
+# The worldwide interest of XAI
+
+Over the past five years, the rate of interest has been rising steadily [(google trend)](https://trends.google.com/trends/explore?date=today%205-y&q=explainable%20ai)
+
+# Why do we need XAI?
+
+-   Current advances in deep learning (DL), having a few million parameters is typical for a DL model!
+
+-   Comparing this number of parameters with the simple linear regression model we've been using for decades will give you a sense of how complicated these DL models are.
+
+# When do we need XAI?
+
+-   In every ML project, at some point, you will probably need to provide the decision-making procedure of the deployed ML models to your clients or your colleagues.
+
+-   XAI is crucial in applications of ML in which the decision of the ML system has a direct impact on people's lives or a significant impact on society.
+
+## Some common use cases of XAI
+
+![](1_28Zt-BgUk0a91pQGNBzgLA@2x.jpeg){fig-align="center" width="21cm"}
+
+![](Screenshot%202022-11-18%20at%202.03.37%20am.png){fig-align="center" width="28.9cm"}
+
+# Some common use cases of XAI
+
+![](1_0AR4X1BH2DaLMIcABBl6Gw@2x.jpeg){fig-align="center"}
+
+## R packages for XAI {.smaller}
+
+| Package          | Description                                                                                                         |
+|------------------|---------------------------------------------------------------------------------------------------------------------|
+| `DALEX`          | The DALEX package (Descriptive mAchine Learning EXplanations) helps to understand how complex models are working.   |
+| ~~`iBreakDown`~~ | The iBreakDown package is a model agnostic tool for explanation of predictions from black boxes ML models.          |
+| ~~`fairmodels`~~ | Flexible tool for bias detection, visualization, and mitigation.                                                    |
+| `modelStudio`    | The modelStudio package automates the explanatory analysis of machine learning predictive models.                   |
+| ~~`arenar`~~     | Arena is an interactive tool that allows you to explore and compare any model regardless of its internal structure. |
+
+# Collection of tools
+
+```{mermaid}
+%%| fig-width: 10
+%%| fig-height: 5
+flowchart TD
+    B["fab:fa-twitter The DrWhy.AI"]
+    style B fill:#bbf,stroke:#333,stroke-width:4px
+    B==>C[fa:fa-ban DALEX]
+    style C fill:#bbf,stroke:#ff56,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
+    B==>D(iBreakDown);
+    style D fill:#bbf,stroke:#ff56,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
+    B==>E(fairmodels)
+    style E fill:#bbf,stroke:#ff56,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
+    B==>F(modelStudio)
+    style F fill:#bbf,stroke:#ff56,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
+    B==>G(arenar)
+    style G fill:#bbf,stroke:#ff56,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
+```
+
+::: footer
+Learn more: [The DrWhy.AI](https://github.com/ModelOriented/DrWhy)
+:::
+
+# Categorization of XAI
+
+```{mermaid}
+flowchart TB;
+ 
+    subgraph Scope
+    A[Global Explination] === B[Explinaing the whole model]
+    style A fill:#bbf,stroke:#333,stroke-width:4px
+    C[Local Explination] === D[Expliaing a specific model]
+    style C fill:#bbf,stroke:#333,stroke-width:4px
+    end
+    subgraph Agnosticity
+    E[Model-agnostic] === F[Application to all model types]
+    style E fill:#bbf,stroke:#333,stroke-width:4px
+    G[Model-specific] === I[Only applicable to a specific model type]
+    style G fill:#bbf,stroke:#333,stroke-width:4px
+    end
+```
+
+## Implementation
+
+::: panel-tabset
+### Black box
+
+![](Screenshot%202022-11-14%20at%204.46.35%20pm.png){fig-align="center"}
+
+### Part I
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-fold: true
+library(modelStudio)
+library(DALEX)
+library(tidyverse)
+library(tidymodels)
+library(xgboost)
+```
+
+### Part II
+
+``` {.r code-line-numbers="3-4|8|13"}
+# DATA
+
+data_tbl <- mpg %>%
+  select(hwy, manufacturer:drv, fl, class)
+
+# MODEL
+
+fit_xgboost <- boost_tree(learn_rate = 0.3) %>%
+  set_mode("regression") %>%
+  set_engine("xgboost") %>%
+  fit(hwy ~ ., data = data_tbl)
+
+fit_xgboost
+```
+
+### Part III
+
+``` {.r code-line-numbers="3|12"}
+# EXPLAINER
+
+explainer <- DALEX::explain(
+  model = fit_xgboost,
+  data  = data_tbl,
+  y     = data_tbl$hwy,
+  label = "XGBoost"
+)
+
+# MODEL STUDIO
+
+modelStudio::modelStudio(explainer)
+```
+
+::: footer
+Final output: [Interactive XAI](https://rpubs.com/MLexpert/971057)
+:::
+:::
+
+# Conclusion
+
+-   Over the past five years, there has been a rise in the number of searches conducted about XAI.
+
+-   XAI is a key part of today's advanced AI systems because it makes it easier for humans and machines to work together.
+
+## Reference
+
+1.  [Explanatory Model Analysis](https://ema.drwhy.ai/)
+
+2.  [Interpretable Machine Learning](https://christophm.github.io/interpretable-ml-book/)
+
+3.  [Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI](https://www.sciencedirect.com/science/article/abs/pii/S1566253519308103?via%3Dihub)
+
+4.  [Global Aggregations of Local Explanations for Black Box models](https://arxiv.org/pdf/1907.03039.pdf)
+
+::: {style="text-align: center; margin-top: 1em"}
+# Thank You
+
+Any Question?
+:::
