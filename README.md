@@ -22,9 +22,16 @@ You can find the presentation slides <a href = "https://jezahmoud.github.io/Ligh
 
 <a href = "https://ema.drwhy.ai/ ">- Explanatory Model Analysis</a>
 
-- Interpretable Machine Learning
-https://christophm.github.io/interpretable-ml-book/
-- Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI
-https://www.sciencedirect.com/science/article/abs/pii/S1566253519308103?via%3Dihub
-- Global Aggregations of Local Explanations for Black Box models
-https://arxiv.org/pdf/1907.03039.pdf
+<a href = "https://christophm.github.io/interpretable-ml-book/ ">- Interpretable Machine Learning</a>
+
+<a href = "https://www.sciencedirect.com/science/article/abs/pii/S1566253519308103?via%3Dihub ">- Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI</a>
+
+<a href = "https://arxiv.org/pdf/1907.03039.pdf ">- Global Aggregations of Local Explanations for Black Box models</a>
+
+
+
+
+
+
+
+
