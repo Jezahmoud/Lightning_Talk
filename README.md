@@ -12,8 +12,8 @@ This project will briefly include:
 
 - R-Implementation
 
-You can find the presentation slides <a href = "https://jezahmoud.github.io/Lightning_Talk/XAI.html#/section ">here</a>
 
+You can find the presentation slides <a href = "https://jezahmoud.github.io/Lightning_Talk/XAI.html#/section">here</a>
 
 # References
 
