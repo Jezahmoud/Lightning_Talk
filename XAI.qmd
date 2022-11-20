@@ -59,18 +59,18 @@ Over the past five years, the rate of interest has been rising steadily [(google
 
 ## Some common use cases of XAI
 
-![](1_28Zt-BgUk0a91pQGNBzgLA@2x.jpeg){fig-align="center" width="21cm"}
+![](case%20of%20XAI_1.jpeg){fig-align="center" width="750"}
 
-![](Screenshot%202022-11-18%20at%202.03.37%20am.png){fig-align="center" width="28.9cm"}
+![](case%20of%20XAI_3.png){fig-align="center" width="1031"}
 
 # Some common use cases of XAI
 
-![](1_0AR4X1BH2DaLMIcABBl6Gw@2x.jpeg){fig-align="center"}
+![](case%20of%20XAI_2.jpeg){fig-align="center"}
 
 ## R packages for XAI {.smaller}
 
 | Package          | Description                                                                                                         |
-|------------------|---------------------------------------------------------------------------------------------------------------------|
+|--------------------|----------------------------------------------------|
 | `DALEX`          | The DALEX package (Descriptive mAchine Learning EXplanations) helps to understand how complex models are working.   |
 | ~~`iBreakDown`~~ | The iBreakDown package is a model agnostic tool for explanation of predictions from black boxes ML models.          |
 | ~~`fairmodels`~~ | Flexible tool for bias detection, visualization, and mitigation.                                                    |
@@ -79,7 +79,7 @@ Over the past five years, the rate of interest has been rising steadily [(google
 
 # Collection of tools
 
-![](Screenshot%202022-11-19%20at%209.39.44%20pm.png){fig-align="center"}
+![](collection%20of%20tools.png){fig-align="center"}
 
 ::: footer
 Learn more: [The DrWhy.AI](https://github.com/ModelOriented/DrWhy)
@@ -87,14 +87,14 @@ Learn more: [The DrWhy.AI](https://github.com/ModelOriented/DrWhy)
 
 # Categorization of XAI
 
-![](Screenshot%202022-11-19%20at%209.40.04%20pm.png){fig-align="center"}
+![](Categorization%20of%20XAI.png){fig-align="center" width="179"}
 
 ## Implementation
 
 ::: panel-tabset
 ### Black box
 
-![](Screenshot%202022-11-14%20at%204.46.35%20pm.png){fig-align="center"}
+![](black%20box.png){fig-align="center"}
 
 ### Part I
 
