@@ -7,7 +7,7 @@
 <link href="XAI_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="XAI_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="XAI_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.1.189">
+  <meta name="generator" content="quarto-1.2.242">
 
   <title>xai</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -383,6 +383,11 @@
   </style>
 </head>
 <body class="quarto-dark">
+<style>
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+    text-transform: none !important;
+}
+</style>
   <div class="reveal">
     <div class="slides">
 
@@ -392,8 +397,8 @@
 
 </section>
 
-<section id="outline-of-the-talk" class="title-slide slide level1 center">
-<h1>Outline of the Talk</h1>
+<section id="outline" class="title-slide slide level1 center">
+<h1>Outline</h1>
 <ul>
 <li class="fragment"><p>Introduction</p></li>
 <li class="fragment"><p>Answering a few questions about XAI</p></li>
@@ -414,7 +419,7 @@
 <h1>What is XAI?</h1>
 <div class="fragment fade-in">
 <ul>
-<li class="fragment">Explainable AI (XAI) is a new subfield of machine learning (ML).</li>
+<li class="fragment">Explainable AI (XAI) is a branch of artificial intelligence</li>
 </ul>
 </div>
 <div class="fragment fade-in">
@@ -424,7 +429,7 @@
 </div>
 <div class="fragment fade-in">
 <ul>
-<li class="fragment">XAI has many branches, but it generally tries to explain the results of complex black-box ML models.</li>
+<li class="fragment">It generally tries to explain the results of complex black-box ML models.</li>
 </ul>
 </div>
 </section>
@@ -438,12 +443,12 @@
 <h1>Why do we need XAI?</h1>
 <div class="fragment fade-in">
 <ul>
-<li class="fragment">Current advances in deep learning (DL), having a few million parameters is typical for a DL model!</li>
+<li class="fragment">Current advances in deep learning (DL) mean that having a few million parameters in a DL model is typical.</li>
 </ul>
 </div>
 <div class="fragment fade-in">
 <ul>
-<li class="fragment">Comparing this number of parameters with the simple linear regression model we’ve been using for decades will give you a sense of how complicated these DL models are.</li>
+<li class="fragment">Comparing this number of parameters with the simple linear regression models we have been using for decades can give you a sense of how much more complicated these DL models are.</li>
 </ul>
 </div>
 </section>
@@ -453,12 +458,12 @@
 <h1>When do we need XAI?</h1>
 <div class="fragment fade-in">
 <ul>
-<li class="fragment">In every ML project, at some point, you will probably need to provide the decision-making procedure of the deployed ML models to your clients or your colleagues.</li>
+<li class="fragment">In every ML project, there will likely come a time when you need to explain the decision-making process of the deployed ML models to your clients or colleagues.</li>
 </ul>
 </div>
 <div class="fragment fade-in">
 <ul>
-<li class="fragment">XAI is crucial in applications of ML in which the decision of the ML system has a direct impact on people’s lives or a significant impact on society.</li>
+<li class="fragment">XAI is crucial in applications of ML where the system’s decisions have a direct impact on people’s lives or a significant impact on society.</li>
 </ul>
 </div>
 </section>
@@ -484,8 +489,8 @@
 <h2>R packages for XAI</h2>
 <table>
 <colgroup>
-<col style="width: 27%">
-<col style="width: 72%">
+<col style="width: 30%">
+<col style="width: 69%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -594,12 +599,12 @@
 <h1>Conclusion</h1>
 <div class="fragment fade-in">
 <ul>
-<li class="fragment">Over the past five years, there has been a rise in the number of searches conducted about XAI.</li>
+<li class="fragment">Over the past five years, there has been an increase in the number of searches conducted about XAI, indicating growing interest and awareness.</li>
 </ul>
 </div>
 <div class="fragment fade-in">
 <ul>
-<li class="fragment">XAI is a key part of today’s advanced AI systems because it makes it easier for humans and machines to work together.</li>
+<li class="fragment">XAI has become a key component of today’s advanced AI systems, facilitating easier collaboration between humans and machines by making AI decisions more understandable.</li>
 </ul>
 </div>
 </section>
@@ -614,7 +619,7 @@
 </section></section>
 <section id="thank-you" class="title-slide slide level1 center" style="text-align: center; margin-top: 1em">
 <h1>Thank You</h1>
-<p>Any Question?</p>
+
 </section>
 
 <div class="footer footer-default">
@@ -837,12 +842,15 @@
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
       (function () {
-        function fireSlideChanged(previousSlide, currentSlide) {
-
-          // dispatch for htmlwidgets
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
           const event = window.document.createEvent("Event");
           event.initEvent("slideenter", true, true);
           window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
 
           // dispatch for shiny
           if (window.jQuery) {
@@ -853,13 +861,6 @@
               window.jQuery(currentSlide).trigger("shown");
             }
           }
-        }
-
-        // hookup for reveal
-        if (window.Reveal) {
-          window.Reveal.addEventListener("slidechanged", function(event) {
-            fireSlideChanged(event.previousSlide, event.currentSlide);
-          });
         }
 
         // hookup for slidy
@@ -911,7 +912,24 @@
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
         button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
         setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
           button.setAttribute("title", currentTitle);
           button.classList.remove('code-copy-button-checked');
         }, 1000);
@@ -949,24 +967,42 @@
           return note.innerHTML;
         });
       }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
       var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
       for (var i=0; i<bibliorefs.length; i++) {
         const ref = bibliorefs[i];
-        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-        tippyHover(ref, function() {
-          var popup = window.document.createElement('div');
-          cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
           });
-          return popup.innerHTML;
-        });
+        }
       }
     });
     </script>
